@@ -104,8 +104,8 @@ int main(int argc, char** argv) {
 		}
 		ofstream output(outputName.c_str());
 		if (rank == 0) {
-			output << iterations << endl;
-			cout << endl;
+			//output << iterations << endl;
+			//cout << endl;
 		}
 		time = 0;
 		for (int i = 0; i < iterations; i++) {
@@ -122,15 +122,17 @@ int main(int argc, char** argv) {
 			if (rank == 0) {
 				stopwatch.mark();
 				time += stopwatch.getElapsedTime(MILLISECOND);
-				output << setprecision(precision) << fixed << time / (i + 1.0) << endl;
-				cout << setprecision(precision) << fixed << time / (i + 1.0)  << endl;
+				//output << setprecision(precision) << fixed << time / (i + 1.0) << endl;
+				//cout << setprecision(precision) << fixed << time / (i + 1.0)  << endl;
 				integral = reduced_data;
 			}
 		}
 		if (rank == 0) {
-			output << endl << setprecision(precision) << fixed << getAccuracy(integral);
-			output.close();
 			time /= (double) iterations;
+			output << setprecision(3) << fixed << time;
+			output << endl << setprecision(precision) << fixed << getAccuracy(integral);
+			//output << endl << setprecision(precision) << fixed << (100 - getAccuracy(integral));
+			output.close();
 		}
 	} else {
 		integral = simpson2ndRule(interval_start, interval_end, k_divided);
@@ -143,7 +145,7 @@ int main(int argc, char** argv) {
 	}
 
 	if (rank == 0) {
-		printResults(integral, time, precision, "PARALLEL");
+		//printResults(integral, time, precision, "PARALLEL");
 	}
 
 	MPI_Finalize();

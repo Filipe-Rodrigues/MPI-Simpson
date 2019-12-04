@@ -7,7 +7,9 @@
 #include <iostream>
 #include <string>
 
-#define SQRT_PI 1.7724538509055160272981674
+#define SQRT_2_PI 2.5066282746310005024157652
+#define SQRT_PI   1.7724538509055160272981674
+#define TOLERANCE 0.000000001 //10e-9
 
 #define SECOND 1
 #define MILLISECOND 1000.0
@@ -69,12 +71,10 @@ double simpson2ndRule(double a, double b, double k) {
 	return integral;
 }
 
-double getError(double result) {
-	return abs(result - SQRT_PI);
-}
-
 double getAccuracy(double result) {
-	return 1.0 - (getError(result) / SQRT_PI);
+	double exponent = -pow(result - SQRT_PI, 2) / (2.0 * TOLERANCE * TOLERANCE);
+	//double normCoeff = 1.0 / (TOLERANCE * SQRT_2_PI);
+	return 100.0 * exp(exponent);
 }
 
 void printResults(double result, double time, short precision, string method) {
@@ -83,7 +83,7 @@ void printResults(double result, double time, short precision, string method) {
 	cout << setprecision(3) << fixed << "The time taken in this "
 		 << method << " method was " << time << " ms\n";
 	cout << setprecision(precision) << fixed << "The accuracy of this result was "
-		 << (getAccuracy(result) * 100.0) << "%\n\n";
+		 << getAccuracy(result)<< "%\n\n";
 }
 
 #endif

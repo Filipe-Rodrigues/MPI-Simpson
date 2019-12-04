@@ -6,13 +6,12 @@
     ▓▓                                                               ▓▓
     ▓▓    2 - PARALLEL   Simpson's 3/8 Rule integral of exp(-x^2)    ▓▓
     ▓▓                                                               ▓▓
-    ▓▓    3 - SEQUENTIAL performance test series                     ▓▓
+    ▓▓    3 - PERFORMANCE TEST SERIES                                ▓▓
     ▓▓                                                               ▓▓
-    ▓▓    4 - PARALLEL   performance test series                     ▓▓
-    ▓▓                                                               ▓▓
-    ▓▓    5 - CONFIGURATION                                          ▓▓
+    ▓▓    4 - CONFIGURATION                                          ▓▓
     ▓▓                                                               ▓▓
     ▓▓    0 - EXIT                                                   ▓▓
     ▓▓                                                               ▓▓
     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 
+ 
